@@ -8,7 +8,7 @@ export function useCssModule(name = '$style'): Record<string, string> {
       __DEV__ && warn(`useCssModule must be called inside setup()`)
       return emptyObject
     }
-    const mod = currentInstance[name]
+    const mod = (currentInstance as any)[name]
     if (!mod) {
       __DEV__ &&
         warn(`Current instance does not have CSS module named "${name}".`)
